@@ -180,11 +180,14 @@ ifneq ($(ROMFS),)
 	export NROFLAGS += --romfsdir=$(CURDIR)/$(ROMFS)
 endif
 
-.PHONY: all clean
+.PHONY: all clean pre-romfs
 
 #---------------------------------------------------------------------------------
 all: $(ROMFS_TARGETS) | $(BUILD)
 	@$(MAKE) --no-print-directory -C $(BUILD) -f $(CURDIR)/Makefile
+
+pre-romfs:
+	rm -f $(OUTPUT).nro
 
 $(BUILD):
 	@mkdir -p $@
