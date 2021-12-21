@@ -1,0 +1,12 @@
+; DO NOT EDIT (unless you know what you are doing)
+;
+; This subdirectory is a git "subrepo", and this file is maintained by the
+; git-subrepo command. See https://github.com/git-commands/git-subrepo#readme
+;
+[subrepo]
+	remote = https://github.com/EmreTech/borealis.git
+	branch = libnx-error-fix
+	commit = 2eedf36e8e6d65a75eed4092b080971e7e409cd3
+	parent = 4abf07e2cd299831fb2807a84dd6f465a0bbcbc6
+	method = merge
+	cmdver = 0.4.3
