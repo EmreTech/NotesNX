@@ -46,9 +46,10 @@ INCLUDES	:=	include
 VERSION_NUMBER := 0.1
 STABLE := Prototype
 
+ICON := resources/img/NotesNX.jpg
 APP_TITLE := NotesNX
 APP_AUTHOR := EmreTech
-APP_VERSION := v$(VERSION_NUMBER) $(STABLE)
+APP_VERSION := $(VERSION_NUMBER) $(STABLE)
 
 ROMFS		:=	resources
 BOREALIS_PATH := lib/borealis

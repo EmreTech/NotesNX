@@ -4,5 +4,14 @@
 
 struct MainActivity : public brls::Activity
 {
-    CONTENT_FROM_XML_RES("activity/main.xml");
+    brls::AppletFrame *frame;
+
+    brls::View *createContentView() override
+    {
+        frame = new brls::AppletFrame();
+        frame->setTitle("NotesNX");
+        frame->setContentView(brls::View::createFromXMLResource("activity/main.xml"));
+
+        return frame;
+    }
 };

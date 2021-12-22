@@ -1,5 +1,6 @@
 #include <borealis.hpp>
 #include <string>
+#include <map>
 
 #include <ListItem.hpp>
 #include <MainActivity.hpp>
@@ -22,7 +23,15 @@ int main(int argc, char **argv)
     brls::getLightTheme().addColor("listitem/background", nvgRGB(255, 255, 255));
     brls::getDarkTheme().addColor("listitem/background", nvgRGB(80, 80, 80));
 
-    brls::Application::pushActivity(new MainActivity());
+    MainActivity *activity = new MainActivity();
+    brls::Application::pushActivity(activity);
+
+    brls::BoundView<brls::Box> mainActivityBox = brls::BoundView<brls::Box>("MainActivityBox", activity->getContentView());
+    
+    ListItem *item1 = new ListItem();
+    item1->setTitle("Hello");
+    item1->setDescription("Date Added: UNKNOWN");
+    mainActivityBox->addView(item1);
  
     while (brls::Application::mainLoop());
 
