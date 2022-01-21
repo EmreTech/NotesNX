@@ -19,10 +19,12 @@ void ListItem::draw(NVGcontext* vg, float x, float y, float width, float height,
     // Separators
     nvgFillColor(vg, ctx->theme["brls/sidebar/separator"]);
 
+    // Bottom
     nvgBeginPath(vg);
     nvgRect(vg, x, y - 1, width, 1);
     nvgFill(vg);
 
+    // Top
     nvgBeginPath(vg);
     nvgRect(vg, x, y + height + 1, width, 1);
     nvgFill(vg);

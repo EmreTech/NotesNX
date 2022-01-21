@@ -1,9 +1,10 @@
 #include <borealis.hpp>
 #include <string>
-#include <map>
 
 #include <ListItem.hpp>
 #include <MainActivity.hpp>
+
+using namespace brls::literals;
 
 int main(int argc, char **argv)
 {
@@ -15,24 +16,21 @@ int main(int argc, char **argv)
         return EXIT_FAILURE;
     }
 
-    brls::Application::createWindow("NotesNX");
+    brls::Application::createWindow("app/title"_i18n);
 
     brls::Application::setGlobalQuit(true);
     brls::Application::registerXMLView("ListItem", ListItem::create);
-
-    brls::getLightTheme().addColor("listitem/background", nvgRGB(255, 255, 255));
-    brls::getDarkTheme().addColor("listitem/background", nvgRGB(80, 80, 80));
-
+    
     MainActivity *activity = new MainActivity();
     brls::Application::pushActivity(activity);
 
     brls::BoundView<brls::Box> mainActivityBox = brls::BoundView<brls::Box>("MainActivityBox", activity->getContentView());
-    
+
     ListItem *item1 = new ListItem();
     item1->setTitle("Hello");
-    item1->setDescription("Date Added: UNKNOWN");
+    item1->setDescription(brls::getStr("app/choose_screen/date_added", "UNKNOWN"));
     mainActivityBox->addView(item1);
- 
+
     while (brls::Application::mainLoop());
 
     return EXIT_SUCCESS;

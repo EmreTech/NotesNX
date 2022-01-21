@@ -1,6 +1,3 @@
-<!--<brls:AppletFrame
-    title="NotesNX">-->
-
 <brls:Box
     id="MainActivityBox"
     width="auto"
@@ -25,5 +22,3 @@
         description="Date Added: UNKNOWN"/>
 
 </brls:Box>
-
-<!--</brls:AppletFrame>-->

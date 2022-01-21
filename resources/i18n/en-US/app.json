@@ -1,0 +1,13 @@
+{
+    "title": "NotesNX",
+    
+    "choose_screen": {
+        "title": "Choose a note below",
+        "date_added": "Date Modified: {0}"
+    },
+
+    "edit_screen": {
+        "edit_title": "Edit the title of this note",
+        "edit_content": "Edit the content of this note"
+    }
+}
