@@ -1,8 +1,12 @@
-#include <borealis.hpp>
 #include <string>
+#include <vector>
+
+#include <borealis.hpp>
+#include <switch.h>
 
 #include <ListItem.hpp>
-#include <MainActivity.hpp>
+#include <TextBox.hpp>
+#include <MenuActivity.hpp>
 
 using namespace brls::literals;
 
@@ -20,11 +24,12 @@ int main(int argc, char **argv)
 
     brls::Application::setGlobalQuit(true);
     brls::Application::registerXMLView("ListItem", ListItem::create);
+    brls::Application::registerXMLView("TextBox", TextBox::create);
     
-    MainActivity *activity = new MainActivity();
+    MainActivity *activity = new MenuActivity();
     brls::Application::pushActivity(activity);
 
-    brls::BoundView<brls::Box> mainActivityBox = brls::BoundView<brls::Box>("MainActivityBox", activity->getContentView());
+    brls::BoundView<brls::Box> menuActivityBox = brls::BoundView<brls::Box>("MainActivityBox", activity->getContentView());
 
     ListItem *item1 = new ListItem();
     item1->setTitle("Hello");

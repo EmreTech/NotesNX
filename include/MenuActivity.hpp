@@ -2,7 +2,7 @@
 
 #include <borealis.hpp>
 
-struct MainActivity : public brls::Activity
+struct MenuActivity : public brls::Activity
 {
     brls::AppletFrame *frame;
 
@@ -10,7 +10,7 @@ struct MainActivity : public brls::Activity
     {
         frame = new brls::AppletFrame();
         frame->setTitle("NotesNX");
-        frame->setContentView(brls::View::createFromXMLResource("activity/main.xml"));
+        frame->setContentView(brls::View::createFromXMLResource("activity/menu.xml"));
 
         return frame;
     }

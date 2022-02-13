@@ -1,10 +1,15 @@
 #include <FileManagement.hpp>
 
-#include <Constants.hpp>
 #include <iostream>
 #include <fstream>
-#include <string.h>
 #include <exception>
+#include <stdio.h>
+#include <dirent.h>
+
+#include <borealis/core/logger.hpp>
+#include <switch.h>
+
+#include <Constants.hpp>
 
 namespace
 {
@@ -80,6 +85,24 @@ std::vector<std::string> strToStrVec(const std::string str)
     }
 
     return vec;
+}
+
+std::vector<std::string> getAllFilesInDir(const std::string dirpath)
+{
+    std::vector <std::string> output;
+
+    DIR *dir = opendir(dirpath.c_str());
+    if (dir == NULL)
+        brls::Logger::error("Failed to open dir \"{}\"", dirpath);
+    else
+    {
+        struct dirent* ent;
+        brls::Logger::debug("Reading directory listing for \"{}\"", dirpath);
+        while ( (ent = readdir(dir)) )
+            output.emplace_back(ent->d_name);
+    }
+
+    return output;
 }
 
 } // namespace FileManagement

@@ -1,8 +1,44 @@
 #include <ListItem.hpp>
 
+const std::string ListItemXML = R"xml(
+    <brls:Box
+        width="auto"
+        height="@style/brls/sidebar/item_height"
+        axis="column"
+        focusable="true"
+        alignItems="center" 
+        justifyContent="center"
+        paddingTop="@style/brls/button/padding_top_bottom"
+        paddingRight="@style/brls/button/padding_sides"
+        paddingBottom="@style/brls/button/padding_top_bottom"
+        paddingLeft="@style/brls/button/padding_sides"
+        cornerRadius="@style/brls/button/corner_radius"
+        highlightCornerRadius="@style/brls/button/corner_radius">
+
+        <brls:Label
+            id="title"
+            width="auto"
+            height="auto"
+            horizontalAlign="center"
+            fontSize="27"
+            marginTop="13.5"
+            marginBottom="13.5"/>
+
+        <brls:Label
+            id="description"
+            width="auto"
+            height="auto"
+            horizontalAlign="center"
+            fontSize="17"
+            marginTop="13.5"
+            marginBottom="13.5"/>
+
+    </brls:Box>
+)xml";
+
 ListItem::ListItem()
 {
-    this->inflateFromXMLRes("xml/views/ListItem.xml");
+    this->inflateFromXMLString(ListItemXML);
 
     this->forwardXMLAttribute("title", this->title, "text");
     this->forwardXMLAttribute("description", this->descript, "text");

@@ -13,12 +13,6 @@
         fontSize="40"
         marginBottom="40px"/>
 
-    <ListItem
-        title="Test"
-        description="Date Added: UNKNOWN"/>
-
-    <ListItem
-        title="I like pancakes"
-        description="Date Added: UNKNOWN"/>
+    <!--ListItems would be inserted here-->
 
 </brls:Box>
